@@ -1,0 +1,29 @@
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Spark-related files
+.metastore_db/
+Thumbs.db
+._*
+*.log
+*.status
+derby.log
+
+# Spark checkpoints and temporary files
+checkpoint/
+/tmp/
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Miscellaneous
+.DS_Store
+__MACOSX/
