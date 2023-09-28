@@ -1,4 +1,4 @@
-##Part 1 
+## Part 1 
 ### Problem 1
 Write an Amazon Athena (or Presto) SQL query that creates a table from the reservations table,
 that shows only the most recent state of each room that has not been reserved yet. Store the new
