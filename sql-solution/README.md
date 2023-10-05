@@ -10,7 +10,7 @@ CREATE EXTERNAL TABLE room_recent_status as
     with latest_reservation_status as (
         SELECT ROW_NUMBER () OVER ( 
             PARTITION BY room_number
-            ORDER BY checkout_date 
+            ORDER BY checkout_date DESC
         ) row_number,room_number,reservation_status,checkin_date,checkout_date
         FROM reservations
         where reservation_status = 'OPEN' 
@@ -49,7 +49,7 @@ SELECT
   room_type,
   SUM(booking_amount) AS total_bookings,
   ROUND(AVG(booking_amount), 2) AS average_bookings,
-  DENSE_RANK() OVER (PARTITION BY DATE_FORMAT(date, 'YYYY-MM') ORDER BY SUM(booking_amount) DESC) AS rank
+  RANK() OVER (PARTITION BY DATE_FORMAT(date, 'YYYY-MM') ORDER BY SUM(booking_amount) DESC) AS rank
 FROM
   bookings
 GROUP BY
